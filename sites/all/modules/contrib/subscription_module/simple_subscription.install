@@ -1,0 +1,40 @@
+<?php
+/**
+ * Implements hook_schema().
+ */
+function simple_subscription_schema() {
+  $schema['simple_subscription'] = array(
+    'description' => 'Stores users that have registered.',
+    'fields' => array(
+      'sid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique subscription ID.',
+      ),
+      'firstname' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The users firstname.',
+      ),
+      'lastname' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '0',
+        'description' => 'The users lastname.',
+      ),
+      'email' => array(
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The users email.',
+      ),      
+    ),
+    'primary key' => array('sid'),        
+  );
+  
+  return $schema;
+}

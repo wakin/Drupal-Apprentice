@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implementation of hook_menu()
+ * 
+ * @return array 
+ */
+function simple_subscription_menu() {
+  $items[ 'subscribe' ] = array(
+    'title' => 'Create your account',
+    'description' => 'Subscription form available for subscribers',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array( 'simple_subscription_subscribe_form' ),
+    'access arguments' => array( 'access content' ),
+    'file' => 'simple_subscription.pages.inc'
+  );
+  
+  return $items;
+}
